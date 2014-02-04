@@ -53,14 +53,23 @@ module.exports = function (grunt) {
           dest: 'app/index.dist.compiled.html'
         }]
       }
+    },
+    watch: {
+      scripts: {
+        files: ['app/collector.html'],
+        tasks: ['replace'],
+        options: {
+          spawn: false,
+        },
+      },
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-replace');
 
   grunt.registerTask('default', ['less', 'concat', 'replace', 'copy']);
-
 };

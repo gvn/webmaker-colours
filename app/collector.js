@@ -31,7 +31,7 @@ angular.module('wmCollector', ['wmCollector.directives'])
 
       // Defaults
 
-      $scope.swatchGroup = 'rgb';
+      $scope.swatchGroup = 'hex';
 
 
       // UI is ready!
