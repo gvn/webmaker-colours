@@ -62,9 +62,18 @@ module.exports = function (grunt) {
           spawn: false,
         },
       },
+    },
+    connect: {
+      server: {
+        options: {
+          port: 1979,
+          base: './'
+        }
+      }
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -72,4 +81,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-replace');
 
   grunt.registerTask('default', ['less', 'concat', 'replace', 'copy']);
+  grunt.registerTask('dev', ['connect', 'watch']);
 };
