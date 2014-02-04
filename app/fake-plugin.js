@@ -1,7 +1,7 @@
 var addon = {
   port: {
    on: function (type, callback) {
-    request = new XMLHttpRequest;
+    request = new XMLHttpRequest();
     request.open('GET', 'mock2.json', true);
     request.send();
 

@@ -45,14 +45,14 @@
     <section>
       <h3>Audio</h3>
       <div>
-        <div ng-repeat="audio in scrapeData.media.audio"><i class="fa fa-volume-up"></i><a href="#" target="_blank">{{ audio.src[0].url }}</a> <span class="format">({{ audio.src[0].format }})</span></div>
+        <div ng-repeat="audio in scrapeData.media.audio"><i class="fa fa-volume-up"></i><a class="url" href="#" target="_blank">{{ audio.src[0].url }}</a> <span class="format">({{ audio.src[0].format }})</span></div>
       </div>
     </section>
 
     <section>
       <h3>Video</h3>
       <div>
-        <div ng-repeat="video in scrapeData.media.video"><i class="fa fa-video-camera"></i><a href="#" target="_blank">{{ video.src[0].url }}</a> <span class="format">({{ video.src[0].format }})</span></div>
+        <div ng-repeat="video in scrapeData.media.video"><i class="fa fa-video-camera"></i><a class="url" href="#" target="_blank">{{ video.src[0].url }}</a> <span class="format">({{ video.src[0].format }})</span></div>
 
       </div>
     </section>
