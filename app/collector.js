@@ -24,7 +24,6 @@ angular.module('wmCollector', ['wmCollector.directives'])
       }
 
       addon.port.on("render-data", function(pageData) {
-        console.log('render-data', pageData);
         $scope.scrapeData = massageData(pageData);
         $scope.$apply();
       });

@@ -18,20 +18,26 @@ angular.module('wmCollector.directives', [])
       restrict: 'AE',
       priority: 1,
       link: function (scope, element, attrs) {
-        var elTriggers = element[0].children;
-        var elTabbedContent = document.querySelectorAll('tabbed[group=' + attrs.control + ']')[0];
-        var elPanels = elTabbedContent.children;
+        var elTriggers = element.children();
+        var elTabbedContent = $('tabbed[group=' + attrs.control + ']');
+        var elPanels = elTabbedContent.children();
 
-        angular.forEach(elPanels, function (elPanel) {
-          console.log(elPanel);
-          elPanel.style.display = 'none';
+        function showPanel(index) {
+          elPanels.hide();
+          elPanels.eq(index).show();
+          elTriggers.filter('.btn-primary').removeClass('btn-primary');
+          elTriggers.eq(index).addClass('btn-primary');
+        }
+
+        elPanels.each(function (index, elPanel) {
+          $(elPanel).hide();
         });
 
-        angular.forEach(elTriggers, function (elTrigger) {
-          elTrigger.addEventListener('click', function (event) {
-            console.log(event);
-          });
+        elTriggers.on('click', function (event) {
+          showPanel($(this).index());
         });
+
+        showPanel(0);
       }
     };
   });

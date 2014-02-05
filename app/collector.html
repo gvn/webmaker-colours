@@ -1,29 +1,36 @@
 <div id="webmaker-collector" ng-app="wmCollector" ng-controller="collectorController">
   <header class="page-header container">
-    <h2 class="light pull-left">Watson</h2>
+    <h2 class="light pull-left">Watson / Mulder</h2>
   </header>
 
   <div class="container">
     <section>
       <h3>Colours</h3>
 
-      <div class="btn-group btn-group-sm">
-        <button ng-click="swatchGroup = 'hex'" type="button" class="btn btn-default">Hex</button>
-        <button ng-click="swatchGroup = 'rgb'" type="button" class="btn btn-default">RGB</button>
-      </div>
+      <tabswitcher control="swatches" class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-default">Hex</button>
+        <button type="button" class="btn btn-default">RGB</button>
+      </tabswitcher>
 
-      <div class="swatches">
-        <div class="col-xs-6 col-sm-4" style="background-color: #{{ colour.hex }};" ng-repeat="colour in scrapeData.colours">
-          <div ng-show="swatchGroup === 'hex'" class="color-data">
-            <strong>#</strong>{{ colour.hex }}
-          </div>
-          <div ng-show="swatchGroup === 'rgb'" class="color-data">
-            <p><strong>R </strong>{{ colour.r }}</p>
-            <p><strong>G </strong>{{ colour.g }}</p>
-            <p><strong>B </strong>{{ colour.b }}</p>
+      <tabbed group="swatches" class="swatches">
+        <div>
+          <div class="col-xs-6 col-sm-4" style="background-color: #{{ colour.hex }};" ng-repeat="colour in scrapeData.colours">
+            <div class="color-data">
+              <strong>#</strong>{{ colour.hex }}
+            </div>
           </div>
         </div>
-      </div>
+
+        <div>
+          <div class="col-xs-6 col-sm-4" style="background-color: #{{ colour.hex }};" ng-repeat="colour in scrapeData.colours">
+            <div class="color-data">
+              <p><strong>R </strong>{{ colour.r }}</p>
+              <p><strong>G </strong>{{ colour.g }}</p>
+              <p><strong>B </strong>{{ colour.b }}</p>
+            </div>
+          </div>
+        </div>
+      </tabbed>
     </section>
 
     <section>
